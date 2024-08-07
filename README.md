@@ -71,9 +71,12 @@ PS> ConvertTo-SysmanLogRequestBody -LogObject $logObject
   "ActionId": null
 }
 ~~~
+
 ### Properties
+
 #### ```Text```
 This property will be constructed from all log messages
+
 #### ```Status```
 This property will use the worst severety from all the log messages added.
 
@@ -83,11 +86,11 @@ Possible values:
  - ```CompletedWithErrors``` At least one warning message and no error messages.
  - ```Failed``` At least one error message present.
  
- #### ```Source```, ```Method``` and ```MethodVersion```
- Taken from the creation parameters.
+#### ```Source```, ```Method``` and ```MethodVersion```
+Taken from the creation parameters.
  
- #### ```ActionId```
- If you use ```-ActionId <long>``` as a parameter to ```New-SysmanLogMessage``` it will be included. Otherwise it will be ```null```.
+#### ```ActionId```
+If you use ```-ActionId <long>``` as a parameter to ```New-SysmanLogMessage``` it will be included. Otherwise it will be ```null```.
 
 ### Misc
 
@@ -95,5 +98,5 @@ Possible values:
 The cmdlets ```Add-SysmanVerboseMessage```, ```Add-SysmanWarningMessage``` and ```Add-SysmanErrorMessage``` will, unless they are last command in the pipeline write the LogObject to the pipeline so that you can stack them.
 
 ~~~ powershell
-PS> $logObject | Add-SysmanVerbose "Normal verbosee message"
+PS> $logObject | Add-SysmanVerbose "Normal verbosee message" | Add-SysmanVerboseMessage
 ~~~
